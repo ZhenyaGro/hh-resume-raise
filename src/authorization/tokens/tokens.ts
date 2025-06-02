@@ -30,6 +30,7 @@ const refreshAccessToken = async (refreshToken: string): Promise<Tokens> => {
  * @returns {Promise<string>} валидный access_token.
  */
 export const getValidAccessToken = async (): Promise<string> => {
+  console.log("🔍 Проверка токенов...");
   let tokens = await loadTokens();
 
   if (!tokens) {
@@ -41,6 +42,8 @@ export const getValidAccessToken = async (): Promise<string> => {
   const now = Date.now();
 
   if (tokens.expires_at > now) {
+    const expiryDate = new Date(tokens.expires_at);
+    console.log(`⏳ Токен действителен до: ${expiryDate.toLocaleString()}`);
     return tokens.access_token;
   }
 

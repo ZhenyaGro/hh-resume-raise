@@ -1,7 +1,7 @@
 import { raiseAllResumes } from "./resume/raiseAllResumes";
 
 async function main() {
-  console.log("🚀 Запуск скрипта для поднятия резюме...");
+  console.log("🚀 Запуск скрипта для поднятия резюме");
 
   try {
     await raiseAllResumes();
