@@ -1,6 +1,6 @@
 {
   "name": "hh-resume-raise",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Auto resume raising",
   "main": "index.ts",
   "scripts": {
