@@ -1,6 +1,6 @@
 import axios from "axios";
-import { Resume } from "./type";
-import { RESUMES_URL } from "./constants/resumesUrl";
+import { Resume } from "../type";
+import { RESUMES_URL } from "../constants/resumesUrl";
 
 /** Ответ hh на запрос списка резюме */
 interface Response {
