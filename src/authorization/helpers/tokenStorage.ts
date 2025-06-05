@@ -2,7 +2,7 @@ import path from "path";
 import fs from "fs/promises";
 import { Tokens } from "../type";
 
-// Путь к корню проекта для хранения токенов
+/** Путь к корню проекта для хранения токенов */
 const TOKEN_FILE = path.resolve(process.cwd(), "tokens.json");
 
 export async function saveTokens(tokens: Tokens) {

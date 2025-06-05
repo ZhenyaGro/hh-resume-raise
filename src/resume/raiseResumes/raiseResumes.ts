@@ -1,7 +1,7 @@
 import axios, { AxiosError } from "axios";
-import { Resume } from "./type";
-import { RESUMES_URL } from "./constants/resumesUrl";
-import { checkCanResumeUpdate } from "./helpers/checkCanResumeUpdate";
+import { Resume } from "../type";
+import { RESUMES_URL } from "../constants/resumesUrl";
+import { checkCanResumeUpdate } from "../helpers/checkCanResumeUpdate";
 
 export const raiseResumes = async (
   resumes: Resume[],

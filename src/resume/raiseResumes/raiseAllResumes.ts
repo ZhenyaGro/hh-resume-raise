@@ -1,7 +1,8 @@
 import { getValidAccessToken } from "@/authorization";
-import { getResumes } from "./getResumes";
+import { getResumes } from "../getResumes/getResumes";
 import { raiseResumes } from "./raiseResumes";
 
+/** Поднимает все резюме пользователя. */
 export const raiseAllResumes = async () => {
   const token = await getValidAccessToken();
 
