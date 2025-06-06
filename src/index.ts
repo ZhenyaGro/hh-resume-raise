@@ -1,7 +1,8 @@
 import { startMenu } from "./menu/startMenu";
 import { MenuAction } from "./menu/enum/menuAction";
 import { raiseAllResumes } from "./resume/raiseResumes/raiseAllResumes";
-import { auth } from "./authorization";
+import { auth, getValidAccessToken } from "./authorization";
+import { setSchedule } from "./resume/raiseResumes/setSchedule";
 
 async function main() {
   console.log("🚀 Запуск скрипта поднятия резюме");
@@ -9,12 +10,14 @@ async function main() {
   const answer = await startMenu();
   switch (answer.action) {
     case MenuAction.Timer:
-      console.log("Данный функционал находится в разработке");
-      // console.log("▶ Настраиваем планировщик...");
+      console.log("Настраиваем расписание...");
+      const token = await getValidAccessToken();
+      setSchedule(token);
       break;
     case MenuAction.Raise:
       try {
-        await raiseAllResumes();
+        const token = await getValidAccessToken();
+        await raiseAllResumes(token);
       } catch (e: any) {
         console.error("❌ Ошибка при выполнении:", e.message);
         process.exit(1);
