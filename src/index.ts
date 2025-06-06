@@ -11,8 +11,7 @@ async function main() {
   switch (answer.action) {
     case MenuAction.Timer:
       console.log("Настраиваем расписание...");
-      const token = await getValidAccessToken();
-      setSchedule(token);
+      setSchedule();
       break;
     case MenuAction.Raise:
       try {

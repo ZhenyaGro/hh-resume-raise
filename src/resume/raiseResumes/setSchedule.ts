@@ -1,6 +1,7 @@
 import { startCountdown } from "@/utils/startCountdown";
 import { getResumes } from "../getResumes/getResumes";
 import { raiseAllResumes } from "./raiseAllResumes";
+import { getValidAccessToken } from "@/authorization";
 
 /**
  * Задержка в миллисекундах.
@@ -13,7 +14,10 @@ const sleep = (ms: number) => new Promise((res) => setTimeout(res, ms));
  * Устанавливает расписание для обновления резюме.
  * @param token Токен доступа пользователя.
  */
-export const setSchedule = async (token: string) => {
+export const setSchedule = async () => {
+  // Проверка токенов перед выполнением действия по расписанию
+  const token = await getValidAccessToken();
+
   await raiseAllResumes(token);
 
   const resumes = await getResumes(token);
@@ -38,5 +42,5 @@ export const setSchedule = async (token: string) => {
 
   startCountdown(nextUpdateTime);
   await sleep(delay);
-  setSchedule(token);
+  setSchedule();
 };
