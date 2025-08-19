@@ -58,7 +58,8 @@ https://hh.ru/oauth/authorize?response_type=code&client_id=HH_CLIENT_ID&redirect
 ## Запуск
 
 ```bash
-npm start
+npm start - для работы в ручном режиме
+npm run worker - для работы в фоновом режиме
 ```
 
 ## 📝 Примечания
