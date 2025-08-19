@@ -1,3 +1,4 @@
+import { formatDate } from "@/@helpers/formatDate";
 import { Resume } from "../type";
 
 /**
@@ -11,9 +12,9 @@ export const checkCanResumeUpdate = (resume: Resume): boolean => {
     // Но указана дата следующего поднятия
     if (resume.next_publish_at) {
       console.log(
-        `⏳ "Резюме ${resume.title}" можно поднять после: ${new Date(
+        `⏳ "Резюме ${resume.title}" можно поднять после: ${formatDate(
           resume.next_publish_at
-        ).toLocaleString()}`
+        )}`
       );
     } else {
       console.warn(
