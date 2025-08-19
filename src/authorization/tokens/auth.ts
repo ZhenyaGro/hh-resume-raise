@@ -4,6 +4,7 @@ import { TokenResponse, Tokens } from "../type";
 import { saveTokens } from "../helpers/tokenStorage";
 import { addExpiry } from "../helpers/addExpiry";
 import { TOKEN_URL } from "./constants/tokenUrl";
+import { logError } from "@/logs/logError";
 
 dotenv.config();
 
@@ -43,9 +44,6 @@ const getTokensFromCode = async (code: string): Promise<Tokens> => {
     const response = await axios.post<TokenResponse>(TOKEN_URL, params);
     return addExpiry(response.data);
   } catch (error) {
-    console.error("❌ Ошибка при получении токенов:", error);
-    throw new Error(
-      "Не удалось получить токены. Проверьте код авторизации и настройки окружения."
-    );
+    logError(error);
   }
 };

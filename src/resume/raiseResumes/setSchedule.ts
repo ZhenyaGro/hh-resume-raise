@@ -17,6 +17,7 @@ const sleep = (ms: number) => new Promise((res) => setTimeout(res, ms));
 export const setSchedule = async () => {
   // Проверка токенов перед выполнением действия по расписанию
   const token = await getValidAccessToken();
+  if (!token) return;
 
   await raiseAllResumes(token);
 
