@@ -1,4 +1,4 @@
-import { formatDate } from "@/@helpers/formatDate";
+import { formatDate } from "@helpers/formatDate";
 import { Resume } from "../type";
 
 /**

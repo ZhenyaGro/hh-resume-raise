@@ -1,12 +1,13 @@
 {
   "name": "hh-resume-raise",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Auto resume raising",
   "main": "index.ts",
   "scripts": {
     "start": "npx ts-node -r tsconfig-paths/register src/index.ts",
     "worker": "npx ts-node -r tsconfig-paths/register src/server/worker.ts",
     "clear": "rm -f tokens.json",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -16,7 +17,9 @@
   "author": "ZhenyaGro",
   "license": "ISC",
   "devDependencies": {
+    "@types/module-alias": "^2.0.4",
     "@types/node": "^22.15.27",
+    "module-alias": "^2.2.3",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.8.3"
   },
